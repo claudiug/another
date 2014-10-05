@@ -1,0 +1,25 @@
+<div class="col-lg-9">
+  <div class="page-header">
+    <%= @item.title %>
+  </div>
+  <% if @item.status %>
+      <h3>Status:</h3>
+      <h2><span class="label label-success">Done</span></h2>
+  <%else%>
+      <h3>Status:</h3>
+      <h2><span class ="label label-warning">Progress</span></h2>
+  <%end%>
+
+ <div class="col-lg-8">
+   <%= @item.description %>
+ </div>
+  <div class="col-lg-6">
+    <%= time_ago_in_words @item.created_at %>
+  </div>
+
+  <div class="col-lg-9">
+    <%= link_to 'all items', items_path, class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-info' %>
+    <%= link_to 'Delete', item_path(@item), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default' %>
+  </div>
+</div>

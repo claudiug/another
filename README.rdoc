@@ -1,0 +1,20 @@
+Vrem sa facem un todo-list
+
+Functionare:
+
+1. Ar trebuie sa avem pagina cu toate todo-urile
+2. Ar trebui sa vedem un singur todo
+3. Ar trebuie sa putem edita un todo
+4. Ar trebui sa putem sterge un todo
+5. Ar trebui sa putem create un todo
+6. Ar trebui sa putem sa cautam un todo pe pagina unde sunt toate (search)
+7. Ar trebuie sa avem todo-urile paginate
+8. maybe relatii intre todo si user
+9. Ar trebuie sa avem un entry page(home page)
+
+http://localhost:3000 -> routes.rb -> controller@method
+http://localhost:3000/home/top -> routes.rb -> controller@method -> home/top
+
+
+
+

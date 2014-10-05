@@ -1,0 +1,55 @@
+
+<div class="col-lg-10">
+  <h2>All the items</h2>
+  <span>Total items: <%= @items.count %></span>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Ranking</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @items.each_with_index do |item, index| %>
+        <tr>
+           <td>
+             <%= index+ 1 %>
+           </td>
+          <td>
+            <%= item.title %>
+          </td>
+          <td>
+            <%= item.description %>
+          </td>
+          <td>
+            <% if item.status %>
+                <p><span class="label label-success">Progress</span></p>
+            <%else%>
+                <p><span class="label label-warning">Done</span></p>
+            <%end%>
+          </td>
+          <td>
+            <%= item.ranking %>
+          </td>
+          <td>
+            <%= link_to 'edit', edit_item_path(item), class: 'btn btn-primary'%>
+            <%= link_to 'show', item_path(item), class: 'btn btn-default'%>
+            <%= link_to 'Delete', item_path(item), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default' %>          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-6">
+  <%= form_tag items_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+     <%= submit_tag 'Search for items', class: 'btn btn-info' %>
+  <%end%>
+  <% if params[:search] %>
+    <%= link_to 'Reset', items_path, class: 'btn btn-link' %>
+  <% end %>
+</div>
